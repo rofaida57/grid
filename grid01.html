@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>صفحة Grid متقدمة</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+        "header header header"
+        "nav main ads"
+        "footer footer footer";
+
+      grid-template-columns: 200px 1fr 200px;
+      grid-template-rows: 100px auto 80px;
+      gap: 10px;
+      height: 100vh;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+
+    .grid-item {
+      padding: 20px;
+      font-size: 24px;
+      border-radius: 10px;
+      color: white;
+    }
+
+    .header {
+      grid-area: header;
+      background-color: #4CAF50;
+    }
+
+    .nav {
+      grid-area: nav;
+      background-color: #2196F3;
+    }
+
+    .main {
+      grid-area: main;
+      background-color: #9C27B0;
+      height: 100%;
+    }
+
+    .ads {
+      grid-area: ads;
+      background-color: #FF9800;
+    }
+
+    .footer {
+      grid-area: footer;
+      background-color: #607D8B;
+      text-align: center;
+    }
+
+    /* ✅ التصميم المتجاوب */
+    @media (max-width: 768px) {
+      .grid-container {
+        grid-template-areas:
+          "header"
+          "nav"
+          "main"
+          "ads"
+          "footer";
+        
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item header">رأس الصفحة (Header)</div>
+    <div class="grid-item nav">شريط التنقل (Nav)</div>
+    <div class="grid-item main">المحتوى الرئيسي (Main Content)</div>
+    <div class="grid-item ads">إعلانات (Ads)</div>
+    <div class="grid-item footer">تذييل (Footer)</div>
+  </div>
+</body>
+</html>
