@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>صفحة Grid متقدمة</title>
+  <style>
+    /* ✅ تعيين أن كل العناصر تستخدم border-box لتسهيل التحكم بالحجم */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* ✅ إعدادات أساسية للجسم */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* ✅ العنصر الرئيسي الذي يحتوي على كل شيء */
+    .grid-container {
+      display: grid; /* نفعّل شبكة Grid */
+
+      /* نحدد مناطق الشبكة الرئيسية باستخدام أسماء مخصصة */
+      grid-template-areas:
+        "header header header"   /* صف 1: الرأس يمتد عبر 3 أعمدة */
+        "nav main ads"           /* صف 2: الشريط الجانبي - المحتوى - الإعلانات */
+        "footer footer footer";  /* صف 3: التذييل يمتد عبر 3 أعمدة */
+
+      /* نحدد عدد الأعمدة وأحجامها */
+      grid-template-columns: 200px 1fr 200px;
+      /* 200px = الشريط الجانبي، 1fr = المحتوى الرئيسي، 200px = الإعلانات */
+
+      /* نحدد ارتفاع كل صف */
+      grid-template-rows: 100px auto 80px;
+      /* 100px للرأس، auto للمحتوى، 80px للتذييل */
+
+      /* المسافة بين العناصر */
+      gap: 10px;
+
+      /* تعيين ارتفاع الصفحة بالكامل */
+      height: 100vh;
+
+      /* مسافة داخلية عامة */
+      padding: 10px;
+
+      /* خلفية رمادية للصفحة */
+      background-color: #f0f0f0;
+    }
+
+    /* ✅ تنسيق كل عنصر داخل الشبكة */
+    .grid-item {
+      padding: 20px;
+      font-size: 24px;
+      border-radius: 10px;
+      color: white;
+    }
+
+    /* ✅ الرأس */
+    .header {
+      grid-area: header; /* نربط العنصر بمنطقة "header" */
+      background-color: #4CAF50; /* أخضر */
+    }
+
+    /* ✅ الشريط الجانبي */
+    .nav {
+      grid-area: nav;
+      background-color: #2196F3; /* أزرق */
+    }
+
+    /* ✅ المحتوى الرئيسي */
+    .main {
+      grid-area: main;
+      background-color: #9C27B0; /* بنفسجي */
+      height: 100%;
+    }
+
+    /* ✅ عمود الإعلانات */
+    .ads {
+      grid-area: ads;
+      background-color: #FF9800; /* برتقالي */
+    }
+
+    /* ✅ التذييل */
+    .footer {
+      grid-area: footer;
+      background-color: #607D8B; /* رمادي غامق */
+      text-align: center;
+    }
+
+    /* ✅ تصميم متجاوب لأجهزة الجوال (شاشات أقل من 768px) */
+    @media (max-width: 768px) {
+      .grid-container {
+        /* نعيد ترتيب الشبكة بحيث تكون العناصر عمودية */
+        grid-template-areas:
+          "header"
+          "nav"
+          "main"
+          "ads"
+          "footer";
+
+        /* عمود واحد فقط */
+        grid-template-columns: 1fr;
+
+        /* الصفوف تأخذ الحجم تلقائي */
+        grid-template-rows: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ عنصر الحاوية الرئيسي -->
+  <div class="grid-container">
+
+    <!-- ✅ رأس الصفحة -->
+    <div class="grid-item header">رأس الصفحة (Header)</div>
+
+    <!-- ✅ الشريط الجانبي للتنقل -->
+    <div class="grid-item nav">شريط التنقل (Nav)</div>
+
+    <!-- ✅ المحتوى الرئيسي -->
+    <div class="grid-item main">المحتوى الرئيسي (Main Content)</div>
+
+    <!-- ✅ عمود الإعلانات -->
+    <div class="grid-item ads">إعلانات (Ads)</div>
+
+    <!-- ✅ تذييل الصفحة -->
+    <div class="grid-item footer">تذييل (Footer)</div>
+
+  </div>
+
+</body>
+</html>
