@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>صفحة Grid متقدمة</title>
+  <style>
+.grid-container{
+    display: grid;
+    grid-template-areas: 
+    "header header "   
+        " main ads"           
+        " footer footer"
+    ;
+    grid-template-columns: 1fr 200px;
+    grid-template-rows: 1fr 1fr 150px;
+    gap: 20px;
+    height: 600px;
+    padding: 20px;
+}
+.grid-item{
+font-size: 20px;
+}
+.header {
+      grid-area: header; /* نربط العنصر بمنطقة "header" */
+      background-color: #4CAF50; /* أخضر */
+    }
+    .main {
+      grid-area: main;
+      background-color: #9C27B0; /* بنفسجي */
+      height: 100%;
+    }
+    .ads {
+      grid-area: ads;
+      background-color: #FF9800; /* برتقالي */
+    }
+    .footer {
+      grid-area: footer;
+      background-color: #607D8B; /* رمادي غامق */
+      text-align: center;
+    }
+@media (max-width:500px) {
+    .grid-container{
+        grid-template-areas: 
+    "header "  
+    "ads" 
+        " main"           
+        " footer"
+    ;
+    grid-template-columns: 1fr ;
+    grid-template-rows: auto;
+    }
+}
+  </style>
+</head>
+<body>
+
+  <!-- ✅ عنصر الحاوية الرئيسي -->
+  <div class="grid-container">
+
+    <!-- ✅ رأس الصفحة -->
+    <div class="grid-item header">رأس الصفحة (Header)</div>
+
+    <!-- ✅ المحتوى الرئيسي -->
+    <div class="grid-item main">المحتوى الرئيسي (Main Content)</div>
+
+    <!-- ✅ عمود الإعلانات -->
+    <div class="grid-item ads">إعلانات (Ads)</div>
+
+    <!-- ✅ تذييل الصفحة -->
+    <div class="grid-item footer">تذييل (Footer)</div>
+
+  </div>
+
+</body>
+</html>
